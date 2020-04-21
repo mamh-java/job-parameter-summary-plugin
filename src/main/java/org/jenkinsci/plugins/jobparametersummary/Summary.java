@@ -64,9 +64,9 @@ public class Summary extends InvisibleAction {
 
         String res = null;
         if (d instanceof BooleanParameterDefinition) {
-            res = Boolean.toString(((BooleanParameterValue) v).value);
+            res = Boolean.toString(((BooleanParameterValue) v).getValue());
         } else if (d instanceof StringParameterDefinition) {
-            res = quote(((StringParameterValue) v).value);
+            res = quote(((StringParameterValue) v).getValue());
         } else if (d instanceof PasswordParameterDefinition) {
             // check whether we have a default value and return a printable mask if we do
             String password = Secret.toString(((PasswordParameterValue) v).getValue());
@@ -74,7 +74,7 @@ public class Summary extends InvisibleAction {
                 res = quote(PASSWORD_MASK);
             }
         } else if (d instanceof ChoiceParameterDefinition) {
-            res = quote(((StringParameterValue) v).value);
+            res = quote(((StringParameterValue) v).getValue());
         }
 
         return res;
